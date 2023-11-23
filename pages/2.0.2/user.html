@@ -732,6 +732,7 @@ margin-bottom: 20px;
         defs["v1CreateLaundryOrderRequestOthersClothes"] = {"type":"object","properties":{"comple":{"type":"integer","format":"int32"},"vietnam_dress":{"type":"integer","format":"int32"},"wedding_dress":{"type":"integer","format":"int32"},"bleaching":{"type":"integer","format":"int32"}}};
         defs["v1CreateLaundryOrderResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"}}};
         defs["v1GetOrderDetailsResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"order":{"$ref":"#/definitions/v1Order"},"detail":{"$ref":"#/definitions/v1OrderDetailResponse"}}};
+        defs["v1GetProductDetailResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"product":{"$ref":"#/definitions/v1Product"},"price":{"$ref":"#/definitions/v1ProductPrice"}}};
         defs["v1LaundryPrice"] = {"type":"object","properties":{"normal_cleaning":{"$ref":"#/definitions/v1LaundryPriceNormalCleaning"},"others":{"$ref":"#/definitions/v1LaundryPriceOthers"}}};
         defs["v1LaundryPriceNormalCleaning"] = {"type":"object","properties":{"Clothes":{"type":"number","format":"double"},"Blanket":{"type":"number","format":"double"},"Mosquito":{"type":"number","format":"double"},"Net":{"type":"number","format":"double"},"Drap":{"type":"number","format":"double"},"Topper":{"type":"number","format":"double"},"Pillow":{"type":"number","format":"double"}}};
         defs["v1LaundryPriceOthers"] = {"type":"object","properties":{"Comple":{"type":"number","format":"double"},"VietnamDress":{"type":"number","format":"double"},"WeddingDress":{"type":"number","format":"double"},"Bleaching":{"type":"number","format":"double"}}};
@@ -756,8 +757,8 @@ margin-bottom: 20px;
         defs["v1OrderLaundryNormalClothes"] = {"type":"object","properties":{"clothes":{"type":"integer","format":"int32"},"blanket":{"type":"integer","format":"int32"},"mosquito":{"type":"integer","format":"int32"},"net":{"type":"integer","format":"int32"},"drap":{"type":"integer","format":"int32"},"topper":{"type":"integer","format":"int32"},"pillow":{"type":"integer","format":"int32"}}};
         defs["v1OrderLaundryOthersClothes"] = {"type":"object","properties":{"comple":{"type":"integer","format":"int32"},"vietnam_dress":{"type":"integer","format":"int32"},"wedding_dress":{"type":"integer","format":"int32"},"bleaching":{"type":"integer","format":"int32"}}};
         defs["v1PaymentMethod"] = {"type":"string","enum":["PAYMENT_METHOD_CASH","PAYMENT_METHOD_WALLET"],"default":"PAYMENT_METHOD_CASH"};
-        defs["v1Product"] = {"type":"object","properties":{"code":{"type":"string"},"name":{"type":"string"},"title":{"type":"string"},"price":{"$ref":"#/definitions/v1ProductPrice"},"type":{"type":"string"},"icon_url":{"type":"string"},"status":{"type":"string"},"created_at":{"type":"string"},"created_by":{"type":"string"},"updated_at":{"type":"string"},"updated_by":{"type":"string"}}};
-        defs["v1ProductPrice"] = {"type":"object","properties":{"product_id":{"type":"string","format":"int64"},"unit_price":{"type":"number","format":"double"},"discount":{"type":"number","format":"double"},"bring_tools":{"type":"number","format":"double"},"on_peak_date":{"type":"number","format":"double"},"on_peak_hour":{"type":"number","format":"double"},"on_holiday":{"type":"number","format":"double"},"on_weekend":{"type":"number","format":"double"},"laundry_price":{"$ref":"#/definitions/v1LaundryPrice"},"air_conditioning_clean_price":{"$ref":"#/definitions/v1AirConditioningCleanPrice"},"created_at":{"type":"string"},"updated_at":{"type":"string"},"updated_by":{"type":"string"}}};
+        defs["v1Product"] = {"type":"object","properties":{"code":{"type":"string"},"name":{"type":"string"},"title":{"type":"string"},"type":{"type":"string"},"icon_url":{"type":"string"},"status":{"type":"string"}}};
+        defs["v1ProductPrice"] = {"type":"object","properties":{"product_id":{"type":"string","format":"int64"},"unit_price":{"type":"number","format":"double"},"discount":{"type":"number","format":"double"},"bring_tools":{"type":"number","format":"double"},"on_peak_date":{"type":"number","format":"double"},"on_peak_hour":{"type":"number","format":"double"},"on_holiday":{"type":"number","format":"double"},"on_weekend":{"type":"number","format":"double"},"laundry_price":{"$ref":"#/definitions/v1LaundryPrice"},"air_conditioning_clean_price":{"$ref":"#/definitions/v1AirConditioningCleanPrice"}}};
         defs["v1UpdateProfileResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"user":{"$ref":"#/definitions/v1User"}}};
         defs["v1User"] = {"type":"object","properties":{"code":{"type":"string"},"full_name":{"type":"string"},"email":{"type":"string"},"phone_number":{"type":"string"},"role":{"type":"string"},"default_address":{"type":"string"},"status":{"type":"string"},"status_display":{"type":"string"},"created_at":{"type":"string"},"updated_at":{"type":"string"}}};
         defs["v1UserAddress"] = {"type":"object","properties":{"id":{"type":"string","format":"int64"},"user_code":{"type":"string"},"type":{"type":"string"},"city":{"type":"string"},"district":{"type":"string"},"ward":{"type":"string"},"street_name":{"type":"string"},"house_no":{"type":"string"},"latitude":{"type":"number","format":"double"},"longitude":{"type":"number","format":"double"},"detail":{"type":"string"},"is_default":{"type":"boolean"}}};
@@ -818,6 +819,9 @@ margin-bottom: 20px;
                       <a href="#api-OrderLaundry-aiohsUserServiceCreateLaundryOrder">aiohsUserServiceCreateLaundryOrder</a>
                     </li>
                   <li class="nav-header" data-group="Product"><a href="#api-Product">API Methods - Product</a></li>
+                    <li data-group="Product" data-name="aiohsUserServiceGetProductDetail" class="">
+                      <a href="#api-Product-aiohsUserServiceGetProductDetail">aiohsUserServiceGetProductDetail</a>
+                    </li>
                     <li data-group="Product" data-name="aiohsUserServiceListProducts" class="">
                       <a href="#api-Product-aiohsUserServiceListProducts">aiohsUserServiceListProducts</a>
                     </li>
@@ -849,7 +853,7 @@ margin-bottom: 20px;
         <div id="header">
           <div id="api-_">
             <h2 id="welcome-to-apidoc">API and SDK Documentation</h2>
-              <div class="app-desc">Version: 2.0.1</div>
+              <div class="app-desc">Version: 2.0.2</div>
             <hr>
             <div>No description provided (generated by Swagger Codegen https://github.com/swagger-api/swagger-codegen)</div>
           </div>
@@ -4602,6 +4606,335 @@ $(document).ready(function() {
                   </section>
                 <section id="api-Product">
                   <h1>Product</h1>
+                    <div id="api-Product-aiohsUserServiceGetProductDetail">
+                      <article id="api-Product-aiohsUserServiceGetProductDetail-0" data-group="User" data-name="aiohsUserServiceGetProductDetail" data-version="0">
+                        <div class="pull-left">
+                          <h1>aiohsUserServiceGetProductDetail</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/products/{code}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Product-aiohsUserServiceGetProductDetail-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Product-aiohsUserServiceGetProductDetail-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://localhost/user/products/{code}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Product-aiohsUserServiceGetProductDetail-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.ProductApi;
+
+import java.io.File;
+import java.util.*;
+
+public class ProductApiExample {
+
+    public static void main(String[] args) {
+        
+        ProductApi apiInstance = new ProductApi();
+        String code = code_example; // String | 
+        try {
+            v1GetProductDetailResponse result = apiInstance.aiohsUserServiceGetProductDetail(code);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProductApi#aiohsUserServiceGetProductDetail");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Product-aiohsUserServiceGetProductDetail-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.ProductApi;
+
+public class ProductApiExample {
+
+    public static void main(String[] args) {
+        ProductApi apiInstance = new ProductApi();
+        String code = code_example; // String | 
+        try {
+            v1GetProductDetailResponse result = apiInstance.aiohsUserServiceGetProductDetail(code);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling ProductApi#aiohsUserServiceGetProductDetail");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Product-aiohsUserServiceGetProductDetail-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Product-aiohsUserServiceGetProductDetail-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *code = code_example; // 
+
+ProductApi *apiInstance = [[ProductApi alloc] init];
+
+[apiInstance aiohsUserServiceGetProductDetailWith:code
+              completionHandler: ^(v1GetProductDetailResponse output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Product-aiohsUserServiceGetProductDetail-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var AiohsUser = require('aiohs_user');
+
+var api = new AiohsUser.ProductApi()
+
+var code = code_example; // {String} 
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.aiohsUserServiceGetProductDetail(code, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Product-aiohsUserServiceGetProductDetail-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Product-aiohsUserServiceGetProductDetail-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class aiohsUserServiceGetProductDetailExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new ProductApi();
+            var code = code_example;  // String | 
+
+            try
+            {
+                v1GetProductDetailResponse result = apiInstance.aiohsUserServiceGetProductDetail(code);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling ProductApi.aiohsUserServiceGetProductDetail: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Product-aiohsUserServiceGetProductDetail-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\ProductApi();
+$code = code_example; // String | 
+
+try {
+    $result = $api_instance->aiohsUserServiceGetProductDetail($code);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ProductApi->aiohsUserServiceGetProductDetail: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Product-aiohsUserServiceGetProductDetail-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::ProductApi;
+
+my $api_instance = WWW::SwaggerClient::ProductApi->new();
+my $code = code_example; # String | 
+
+eval { 
+    my $result = $api_instance->aiohsUserServiceGetProductDetail(code => $code);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling ProductApi->aiohsUserServiceGetProductDetail: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Product-aiohsUserServiceGetProductDetail-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.ProductApi()
+code = code_example # String | 
+
+try: 
+    api_response = api_instance.aiohs_user_service_get_product_detail(code)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling ProductApi->aiohsUserServiceGetProductDetail: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">code*</td>
+<td>
+
+
+    <div id="d2e199_aiohsUserServiceGetProductDetail_code">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - A successful response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-aiohsUserServiceGetProductDetail-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-aiohsUserServiceGetProductDetail-200-schema">
+                                  <div id='responses-aiohsUserServiceGetProductDetail-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "A successful response.",
+  "schema" : {
+    "$ref" : "#/definitions/v1GetProductDetailResponse"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-aiohsUserServiceGetProductDetail-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-aiohsUserServiceGetProductDetail-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-aiohsUserServiceGetProductDetail-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: default - An unexpected error response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-aiohsUserServiceGetProductDetail-default-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-aiohsUserServiceGetProductDetail-default-schema">
+                                  <div id='responses-aiohsUserServiceGetProductDetail-default-schema-default' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "An unexpected error response.",
+  "schema" : {
+    "$ref" : "#/definitions/rpcStatus"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-aiohsUserServiceGetProductDetail-default-schema-data').val(stringify(schema));
+                                        var result = $('#responses-aiohsUserServiceGetProductDetail-default-schema-default');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-aiohsUserServiceGetProductDetail-default-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-Product-aiohsUserServiceListProducts">
                       <article id="api-Product-aiohsUserServiceListProducts-0" data-group="User" data-name="aiohsUserServiceListProducts" data-version="0">
                         <div class="pull-left">
