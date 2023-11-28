@@ -41,5 +41,66 @@
     <ul>
         <li>Execute <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20231116215050_alter_order_subscription_tbl.up.sql#L3C1-L4C41">THIS</a> before start server</li>
     </ul>
+
+    <h2>Release 2.0.3</h2>
+    <ul>
+        <li>DockerHub: 
+            <a href="https://hub.docker.com/r/hieuiam/aiohs-server/tags">https://hub.docker.com/r/hieuiam/aiohs-server/tags</a>
+        </li>
+        <li>User:
+            <ul>
+            <li>Swagger : 
+                <a href="https://app.swaggerhub.com/apis-docs/hieuus/aiohs-user/2.0.3">https://app.swaggerhub.com/apis-docs/hieuus/aiohs-user/2.0.2</a>
+            </li>
+            <li>
+                <a href="pages/2.0.3/user.html">Click for more details</a>
+            </li>
+
+        </ul>
+        <li>Admin:
+            <ul>
+            <li>Swagger : 
+                <a href="https://app.swaggerhub.com/apis-docs/hieuus/aiohs-admin/2.0.3">https://app.swaggerhub.com/apis-docs/hieuus/aiohs-admin/2.0.2</a>
+            </li>
+            <li>
+                <a href="pages/2.0.3/admin.html">Click for more details</a>
+            </li>
+
+        </ul>
+    </ul>
+    <h3>*What's news?</h3>
+    <ul>
+        <li>API
+            <ul>
+                <li>Calculate order price</li>
+                <li>Updating...</li>
+                <!-- <li>Create order: Room</li>
+                <li>Maid: get an order</li>
+                <li>Renter: cancel an order</li> -->
+            </ul>
+        </li>
+        <li>Database: vietnam_holiday data</li>
+    </ul>
+
+    <h3>*Notice</h3>
+    <ul>
+        <li>Database Execute
+            <ul>
+                <li> <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20231123130000_add_holiday_tbl.up.sql">vietnam_holiday schema</a></li>
+                <li> <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20231126124200_alter_home_cooking_table.up.sql">alter home_cooking tbl</a></li>
+                <li> <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20231126145700_alter_user_order_tbl.up.sql">alter user_order tbl</a></li>
+            </ul>
+        </li>
+        <li>Create Clean_subscription flow:
+            <ul>
+                <li>1. Let user input: from_date (the date will start job), week_dates(working dates in a week), number_of_month</li>
+                <li>2. Call api: CalculateAllWorkingDates to get all working dates</li>
+                <li>3. Call api: CalculateCleanSubscriptionPrice with input: working_hour(time to start working in a day), duration_per_date, working_dates(the the response of CalculateAllWorkingDates api)
+                    <br>The Response contains: price, message and peakDates(dates are weekend or holiday)</li>
+                <li>4. Call calculate price again if user change(rm or add dates)</li>
+                <li>5. Create order</li>
+            </ul>
+        </li>
+    </ul>
 </body>
 </html>
