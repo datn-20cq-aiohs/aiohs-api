@@ -84,7 +84,7 @@
 
     <h3>*Notice</h3>
     <ul>
-        <li>Database Execute
+        <li>Database Execution
             <ul>
                 <li> <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20231123130000_add_holiday_tbl.up.sql">vietnam_holiday schema</a></li>
                 <li> <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20231126124200_alter_home_cooking_table.up.sql">alter home_cooking tbl</a></li>
@@ -99,6 +99,59 @@
                     <br>The Response contains: price, message and peakDates(dates are weekend or holiday)</li>
                 <li>4. Call calculate price again if user change(rm or add dates)</li>
                 <li>5. Create order</li>
+            </ul>
+        </li>
+    </ul>
+
+
+    <h2>Release 2.0.4</h2>
+    <ul>
+        <li>DockerHub: 
+            <a href="https://hub.docker.com/r/hieuiam/aiohs-server/tags">https://hub.docker.com/r/hieuiam/aiohs-server/tags</a>
+        </li>
+        <li>User:
+            <ul>
+            <li>Swagger : 
+                <a href="https://app.swaggerhub.com/apis-docs/hieuus/aiohs-user/2.0.4">https://app.swaggerhub.com/apis-docs/hieuus/aiohs-user/2.0.4</a>
+            </li>
+            <li>
+                <a href="pages/2.0.4/user.html">Click for more details</a>
+            </li>
+
+        </ul>
+        <li>Admin:
+            <ul>
+            <li>Swagger : 
+                <a href="https://app.swaggerhub.com/apis-docs/hieuus/aiohs-admin/2.0.4">https://app.swaggerhub.com/apis-docs/hieuus/aiohs-admin/2.0.4</a>
+            </li>
+            <li>
+                <a href="pages/2.0.4/admin.html">Click for more details</a>
+            </li>
+
+        </ul>
+    </ul>
+    <h3>*What's news?</h3>
+    <ul>
+        <li>API
+            <ul>
+                <li>Area Booking: Create, List, Update, Close Post</li>
+                <li>Job Posting: Create, List, Update, Close, Get Detail</li>
+                <li>List Order with filter distance</li>
+                <li>Maid: get an order</li>
+                <li>Renter: cancel an order</li>
+                <li>User Address: add agent_name, agent_phone</li>
+            </ul>
+        </li>
+        <li>Database: area_booking, job_posting</li>
+    </ul>
+
+    <h3>*Notice</h3>
+    <ul>
+        <li>Database Execution
+            <ul>
+                <li> <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20231202140200_alter_user_address_tbl.up.sql">alter user_address tbl</a></li>
+                <li> <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20231202144000_add_job_posting_tbl.up.sql">init job_posting tbl</a></li>
+                <li> <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20231203174500_add_area_booking_tbl.up.sql">init job_posting tbl</a></li>
             </ul>
         </li>
     </ul>
