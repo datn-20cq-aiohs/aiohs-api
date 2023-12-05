@@ -700,7 +700,7 @@ margin-bottom: 20px;
         defs["body_1"] = {"type":"object","properties":{"full_name":{"type":"string"},"email":{"type":"string"},"phone_number":{"type":"string"}}};
         defs["body_10"] = {"type":"object","properties":{"order_amount":{"type":"number","format":"double"},"payment_method":{"$ref":"#/definitions/v1PaymentMethod"},"working_hour":{"type":"string"},"working_date":{"type":"string"},"agent_name":{"type":"string"},"agent_phone":{"type":"string"},"working_address":{"type":"string"},"latitude":{"type":"number","format":"double"},"longitude":{"type":"number","format":"double"},"note":{"type":"string"},"number_of_people":{"type":"integer","format":"int32"},"courses":{"type":"array","items":{"type":"string"}},"with_grocery_assistant":{"type":"boolean"},"grocery_assistant_amount":{"type":"number","format":"double"}}};
         defs["body_11"] = {"type":"object","properties":{"order_amount":{"type":"number","format":"double"},"payment_method":{"$ref":"#/definitions/v1PaymentMethod"},"working_hour":{"type":"string"},"working_date":{"type":"string"},"agent_name":{"type":"string"},"agent_phone":{"type":"string"},"working_address":{"type":"string"},"latitude":{"type":"number","format":"double"},"longitude":{"type":"number","format":"double"},"note":{"type":"string"},"normal_clothes":{"$ref":"#/definitions/v1CreateLaundryOrderRequestNormalClothes"},"others_clothes":{"$ref":"#/definitions/v1CreateLaundryOrderRequestOthersClothes"},"received_date":{"type":"string"}}};
-        defs["body_2"] = {"type":"object","properties":{"title":{"type":"string"},"number_rental_days":{"type":"integer","format":"int32"},"area":{"type":"number","format":"double"},"price":{"type":"number","format":"double"},"description":{"type":"string"},"images":{"type":"array","items":{"type":"string"}},"address":{"type":"string"},"longitude":{"type":"number","format":"double"},"latitude":{"type":"number","format":"double"}}};
+        defs["body_2"] = {"type":"object","properties":{"type":{"$ref":"#/definitions/v1AreaBookingType"},"title":{"type":"string"},"number_rental_days":{"type":"integer","format":"int32"},"area":{"type":"number","format":"double"},"price":{"type":"number","format":"double"},"description":{"type":"string"},"images":{"type":"array","items":{"type":"string"}},"address":{"type":"string"},"longitude":{"type":"number","format":"double"},"latitude":{"type":"number","format":"double"}}};
         defs["body_3"] = {"type":"object","properties":{"title":{"type":"string"},"number_rental_days":{"type":"integer","format":"int32"},"area":{"type":"number","format":"double"},"price":{"type":"number","format":"double"},"description":{"type":"string"},"images":{"type":"array","items":{"type":"string"}},"address":{"type":"string"},"longitude":{"type":"number","format":"double"},"latitude":{"type":"number","format":"double"}}};
         defs["body_4"] = {"type":"object","properties":{"longitude":{"type":"number","format":"double"},"latitude":{"type":"number","format":"double"},"working_address":{"type":"string"},"title":{"type":"string"},"number_employee":{"type":"integer","format":"int32"},"description":{"type":"string"},"wage_type":{"type":"string"},"wage_type_display":{"type":"string"},"wage_min":{"type":"number","format":"double"},"wage_max":{"type":"number","format":"double"},"images":{"type":"array","items":{"type":"string"}},"candidate_gender":{"type":"string"},"candidate_min_age":{"type":"integer","format":"int32"},"candidate_max_age":{"type":"integer","format":"int32"},"candidate_experience":{"type":"string"}}};
         defs["body_5"] = {"type":"object","properties":{"longitude":{"type":"number","format":"double"},"latitude":{"type":"number","format":"double"},"working_address":{"type":"string"},"title":{"type":"string"},"number_employee":{"type":"integer","format":"int32"},"description":{"type":"string"},"wage_type":{"type":"string"},"wage_type_display":{"type":"string"},"wage_min":{"type":"number","format":"double"},"wage_max":{"type":"number","format":"double"},"images":{"type":"array","items":{"type":"string"}},"candidate_gender":{"type":"string"},"candidate_min_age":{"type":"integer","format":"int32"},"candidate_max_age":{"type":"integer","format":"int32"},"candidate_experience":{"type":"string"}}};
@@ -719,14 +719,15 @@ margin-bottom: 20px;
         defs["v1AirConditioningFloor"] = {"type":"object","properties":{"Bellow5HP":{"type":"number","format":"double"},"Above5HP":{"type":"number","format":"double"},"GasRefill":{"type":"number","format":"double"}}};
         defs["v1AirConditioningPortable"] = {"type":"object","properties":{"Portable":{"type":"number","format":"double"},"GasRefill":{"type":"number","format":"double"}}};
         defs["v1AirConditioningWall"] = {"type":"object","properties":{"Bellow2HP":{"type":"number","format":"double"},"Above2HP":{"type":"number","format":"double"},"GasRefill":{"type":"number","format":"double"}}};
-        defs["v1AreaBooking"] = {"type":"object","properties":{"code":{"type":"string"},"user_code":{"type":"string"},"status":{"type":"string"},"status_display":{"type":"string"},"title":{"type":"string"},"number_rental_days":{"type":"integer","format":"int32"},"area":{"type":"number","format":"double"},"price":{"type":"number","format":"double"},"description":{"type":"string"},"images":{"type":"array","items":{"type":"string"}},"address":{"type":"string"},"longitude":{"type":"number","format":"double"},"latitude":{"type":"number","format":"double"},"created_at":{"type":"string"},"updated_at":{"type":"string"}}};
+        defs["v1AreaBooking"] = {"type":"object","properties":{"code":{"type":"string"},"user_code":{"type":"string"},"type":{"type":"string"},"type_display":{"type":"string"},"status":{"type":"string"},"status_display":{"type":"string"},"title":{"type":"string"},"number_rental_days":{"type":"integer","format":"int32"},"area":{"type":"number","format":"double"},"price":{"type":"number","format":"double"},"description":{"type":"string"},"images":{"type":"array","items":{"type":"string"}},"address":{"type":"string"},"longitude":{"type":"number","format":"double"},"latitude":{"type":"number","format":"double"},"created_at":{"type":"string"},"updated_at":{"type":"string"}}};
         defs["v1AreaBookingStatus"] = {"type":"string","enum":["AREA_BOOKING_STATUS_ACTIVE","AREA_BOOKING_STATUS_INACTIVE"],"default":"AREA_BOOKING_STATUS_ACTIVE"};
+        defs["v1AreaBookingType"] = {"type":"string","enum":["AREA_BOOKING_TYPE_RENT","AREA_BOOKING_TYPE_NEED_TO_RENT"],"default":"AREA_BOOKING_TYPE_RENT"};
         defs["v1CalculateAirConditioningCleanPriceRequest"] = {"type":"object","properties":{"working_hour":{"type":"string"},"working_date":{"type":"string"},"wall":{"$ref":"#/definitions/v1CalculateAirConditioningCleanPriceRequestWall"},"portable":{"$ref":"#/definitions/v1CalculateAirConditioningCleanPriceRequestPortable"},"cassette":{"$ref":"#/definitions/v1CalculateAirConditioningCleanPriceRequestCassette"},"floor":{"$ref":"#/definitions/v1CalculateAirConditioningCleanPriceRequestFloor"},"built_in":{"$ref":"#/definitions/v1CalculateAirConditioningCleanPriceRequestBuiltIn"}}};
-        defs["v1CalculateAirConditioningCleanPriceRequestBuiltIn"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1CalculateAirConditioningCleanPriceRequestCassette"] = {"type":"object","properties":{"number_bellow_3hp":{"type":"integer","format":"int32"},"number_above_3hp":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1CalculateAirConditioningCleanPriceRequestFloor"] = {"type":"object","properties":{"number_bellow_5hp":{"type":"integer","format":"int32"},"number_above_5hp":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1CalculateAirConditioningCleanPriceRequestPortable"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1CalculateAirConditioningCleanPriceRequestWall"] = {"type":"object","properties":{"number_bellow_2hp":{"type":"integer","format":"int32"},"number_above_2hp":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
+        defs["v1CalculateAirConditioningCleanPriceRequestBuiltIn"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"integer","format":"int32"}}};
+        defs["v1CalculateAirConditioningCleanPriceRequestCassette"] = {"type":"object","properties":{"number_bellow_3hp":{"type":"integer","format":"int32"},"number_above_3hp":{"type":"integer","format":"int32"},"gas_refill_bellow_3hp":{"type":"integer","format":"int32"},"gas_refill_above_3hp":{"type":"integer","format":"int32"}}};
+        defs["v1CalculateAirConditioningCleanPriceRequestFloor"] = {"type":"object","properties":{"number_bellow_5hp":{"type":"integer","format":"int32"},"number_above_5hp":{"type":"integer","format":"int32"},"gas_refill_bellow_5hp":{"type":"integer","format":"int32"},"gas_refill_above_5hp":{"type":"integer","format":"int32"}}};
+        defs["v1CalculateAirConditioningCleanPriceRequestPortable"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"integer","format":"int32"}}};
+        defs["v1CalculateAirConditioningCleanPriceRequestWall"] = {"type":"object","properties":{"number_bellow_2hp":{"type":"integer","format":"int32"},"number_above_2hp":{"type":"integer","format":"int32"},"gas_refill_bellow_2hp":{"type":"integer","format":"int32"},"gas_refill_above_2hp":{"type":"integer","format":"int32"}}};
         defs["v1CalculateAirConditioningCleanPriceResponse"] = {"type":"object","properties":{"price":{"type":"number","format":"double"},"message":{"type":"string"}}};
         defs["v1CalculateAllWorkingDatesRequest"] = {"type":"object","properties":{"weekdays":{"type":"array","items":{"$ref":"#/definitions/v1Weekday"}},"number_of_month":{"type":"integer","format":"int32"},"from_date":{"type":"string"}}};
         defs["v1CalculateAllWorkingDatesResponse"] = {"type":"object","properties":{"dates":{"type":"array","items":{"type":"string"}}}};
@@ -734,7 +735,7 @@ margin-bottom: 20px;
         defs["v1CalculateCleanOnDemandPriceResponse"] = {"type":"object","properties":{"price":{"type":"number","format":"double"},"message":{"type":"string"}}};
         defs["v1CalculateCleanSubscriptionPriceRequest"] = {"type":"object","properties":{"working_hour":{"type":"string"},"working_dates":{"type":"array","items":{"type":"string"}},"duration_per_day":{"type":"integer","format":"int32"}}};
         defs["v1CalculateCleanSubscriptionPriceResponse"] = {"type":"object","properties":{"price":{"type":"number","format":"double"},"message":{"type":"string"},"peak_dates":{"type":"array","items":{"type":"string"}}}};
-        defs["v1CalculateGroceryAssistantPriceRequest"] = {"type":"object","properties":{"working_hour":{"type":"string"},"working_date":{"type":"string"},"amount":{"type":"number","format":"double"}}};
+        defs["v1CalculateGroceryAssistantPriceRequest"] = {"type":"object","properties":{"working_hour":{"type":"string"},"working_date":{"type":"string"},"amount":{"type":"number","format":"double"},"number_items":{"type":"integer","format":"int32"}}};
         defs["v1CalculateGroceryAssistantPriceResponse"] = {"type":"object","properties":{"price":{"type":"number","format":"double"},"message":{"type":"string"}}};
         defs["v1CalculateHomeCookingPriceRequest"] = {"type":"object","properties":{"working_hour":{"type":"string"},"working_date":{"type":"string"},"number_of_people":{"type":"integer","format":"int32"},"courses":{"type":"array","items":{"type":"string"}},"with_grocery_assistant":{"type":"boolean"},"grocery_assistant_amount":{"type":"number","format":"double"}}};
         defs["v1CalculateHomeCookingPriceResponse"] = {"type":"object","properties":{"price":{"type":"number","format":"double"},"message":{"type":"string"}}};
@@ -743,17 +744,17 @@ margin-bottom: 20px;
         defs["v1CalculateLaundryPriceRequestOthersClothes"] = {"type":"object","properties":{"comple":{"type":"integer","format":"int32"},"vietnam_dress":{"type":"integer","format":"int32"},"wedding_dress":{"type":"integer","format":"int32"},"bleaching":{"type":"integer","format":"int32"}}};
         defs["v1CalculateLaundryPriceResponse"] = {"type":"object","properties":{"price":{"type":"number","format":"double"},"message":{"type":"string"}}};
         defs["v1CancelOrderResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"}}};
-        defs["v1CloseAreaBookingPostResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"result":{"$ref":"#/definitions/v1AreaBooking"}}};
+        defs["v1CloseAreaBookingPostResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"post":{"$ref":"#/definitions/v1AreaBooking"}}};
         defs["v1CloseJobPostingResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"jobs":{"$ref":"#/definitions/v1JobPosting"}}};
         defs["v1CreateAccountRequest"] = {"type":"object","properties":{"phone":{"type":"string"},"email":{"type":"string"},"password":{"type":"string"}}};
         defs["v1CreateAccountResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"}}};
-        defs["v1CreateAirConditioningCleanOrderRequestBuiltIn"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1CreateAirConditioningCleanOrderRequestCassette"] = {"type":"object","properties":{"number_bellow_3hp":{"type":"integer","format":"int32"},"number_above_3hp":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1CreateAirConditioningCleanOrderRequestFloor"] = {"type":"object","properties":{"number_bellow_5hp":{"type":"integer","format":"int32"},"number_above_5hp":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1CreateAirConditioningCleanOrderRequestPortable"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1CreateAirConditioningCleanOrderRequestWall"] = {"type":"object","properties":{"number_bellow_2hp":{"type":"integer","format":"int32"},"number_above_2hp":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
+        defs["v1CreateAirConditioningCleanOrderRequestBuiltIn"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"integer","format":"int32"}}};
+        defs["v1CreateAirConditioningCleanOrderRequestCassette"] = {"type":"object","properties":{"number_bellow_3hp":{"type":"integer","format":"int32"},"number_above_3hp":{"type":"integer","format":"int32"},"gas_refill_bellow_3hp":{"type":"integer","format":"int32"},"gas_refill_above_3hp":{"type":"integer","format":"int32"}}};
+        defs["v1CreateAirConditioningCleanOrderRequestFloor"] = {"type":"object","properties":{"number_bellow_5hp":{"type":"integer","format":"int32"},"number_above_5hp":{"type":"integer","format":"int32"},"gas_refill_bellow_5hp":{"type":"integer","format":"int32"},"gas_refill_above_5hp":{"type":"integer","format":"int32"}}};
+        defs["v1CreateAirConditioningCleanOrderRequestPortable"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"integer","format":"int32"}}};
+        defs["v1CreateAirConditioningCleanOrderRequestWall"] = {"type":"object","properties":{"number_bellow_2hp":{"type":"integer","format":"int32"},"number_above_2hp":{"type":"integer","format":"int32"},"gas_refill_bellow_2hp":{"type":"integer","format":"int32"},"gas_refill_above_2hp":{"type":"integer","format":"int32"}}};
         defs["v1CreateAirConditioningCleanOrderResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"}}};
-        defs["v1CreateAreaBookingResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"result":{"$ref":"#/definitions/v1AreaBooking"}}};
+        defs["v1CreateAreaBookingResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"post":{"$ref":"#/definitions/v1AreaBooking"}}};
         defs["v1CreateCleanOnDemandOrderResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"}}};
         defs["v1CreateCleaningSubscriptionOrderResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"}}};
         defs["v1CreateGroceryAssistantOrderResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"}}};
@@ -764,13 +765,15 @@ margin-bottom: 20px;
         defs["v1CreateLaundryOrderResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"}}};
         defs["v1GetOrderDetailsResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"order":{"$ref":"#/definitions/v1Order"},"detail":{"$ref":"#/definitions/v1OrderDetailResponse"}}};
         defs["v1GetProductDetailResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"product":{"$ref":"#/definitions/v1Product"},"price":{"$ref":"#/definitions/v1ProductPrice"}}};
+        defs["v1GetPublicAreaBookingPostDetailResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"posts":{"$ref":"#/definitions/v1AreaBooking"}}};
+        defs["v1GetPublicJobPostingDetailResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"job":{"$ref":"#/definitions/v1JobPosting"}}};
         defs["v1JobPosting"] = {"type":"object","properties":{"code":{"type":"string"},"status":{"type":"string"},"status_display":{"type":"string"},"user_code":{"type":"string"},"longitude":{"type":"number","format":"double"},"latitude":{"type":"number","format":"double"},"working_address":{"type":"string"},"title":{"type":"string"},"number_employee":{"type":"integer","format":"int32"},"description":{"type":"string"},"wage_type":{"type":"string"},"wage_type_display":{"type":"string"},"wage_min":{"type":"number","format":"double"},"wage_max":{"type":"number","format":"double"},"images":{"type":"array","items":{"type":"string"}},"candidate_gender":{"type":"string"},"candidate_min_age":{"type":"integer","format":"int32"},"candidate_max_age":{"type":"integer","format":"int32"},"candidate_experience":{"type":"string"},"created_at":{"type":"string"},"updated_at":{"type":"string"}}};
         defs["v1JobPostingStatus"] = {"type":"string","enum":["JOB_POSTING_STATUS_ACTIVE","JOB_POSTING_STATUS_INACTIVE"],"default":"JOB_POSTING_STATUS_ACTIVE"};
         defs["v1LaundryPrice"] = {"type":"object","properties":{"normal_cleaning":{"$ref":"#/definitions/v1LaundryPriceNormalCleaning"},"others":{"$ref":"#/definitions/v1LaundryPriceOthers"}}};
         defs["v1LaundryPriceNormalCleaning"] = {"type":"object","properties":{"Clothes":{"type":"number","format":"double"},"Blanket":{"type":"number","format":"double"},"Mosquito":{"type":"number","format":"double"},"Net":{"type":"number","format":"double"},"Drap":{"type":"number","format":"double"},"Topper":{"type":"number","format":"double"},"Pillow":{"type":"number","format":"double"}}};
         defs["v1LaundryPriceOthers"] = {"type":"object","properties":{"Comple":{"type":"number","format":"double"},"VietnamDress":{"type":"number","format":"double"},"WeddingDress":{"type":"number","format":"double"},"Bleaching":{"type":"number","format":"double"}}};
         defs["v1ListProductsResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"products":{"type":"array","items":{"$ref":"#/definitions/v1Product"}}}};
-        defs["v1ListPublicAreaBookingPostResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"results":{"type":"array","items":{"$ref":"#/definitions/v1AreaBooking"}},"next":{"type":"string","format":"int64"}}};
+        defs["v1ListPublicAreaBookingPostResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"posts":{"type":"array","items":{"$ref":"#/definitions/v1AreaBooking"}},"next":{"type":"string","format":"int64"}}};
         defs["v1ListPublicJobPostingResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"jobs":{"type":"array","items":{"$ref":"#/definitions/v1JobPosting"}},"next":{"type":"string","format":"int64"}}};
         defs["v1ListPublicOrdersResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"orders":{"type":"array","items":{"$ref":"#/definitions/v1Order"}},"next":{"type":"string","format":"int64"}}};
         defs["v1ListUserAddressResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"results":{"type":"array","items":{"$ref":"#/definitions/v1UserAddress"}}}};
@@ -779,11 +782,11 @@ margin-bottom: 20px;
         defs["v1LoginResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"user":{"$ref":"#/definitions/v1User"},"token":{"type":"string"}}};
         defs["v1Order"] = {"type":"object","properties":{"id":{"type":"string","format":"int64"},"code":{"type":"string"},"renter_code":{"type":"string"},"renter_name":{"type":"string"},"agent_name":{"type":"string"},"agent_phone":{"type":"string"},"maid_code":{"type":"string"},"maid_name":{"type":"string"},"product_code":{"type":"string"},"product_name":{"type":"string"},"order_amount":{"type":"number","format":"double"},"payment_method":{"type":"string"},"payment_method_display":{"type":"string"},"status":{"type":"string"},"status_display":{"type":"string"},"working_hour":{"type":"string"},"working_date":{"type":"string"},"working_address":{"type":"string"},"longitude":{"type":"number","format":"double"},"latitude":{"type":"number","format":"double"},"created_at":{"type":"string"},"updated_at":{"type":"string"}}};
         defs["v1OrderAirConditioningClean"] = {"type":"object","properties":{"note":{"type":"string"},"wall":{"$ref":"#/definitions/v1OrderAirConditioningCleanWallDetail"},"portable":{"$ref":"#/definitions/v1OrderAirConditioningCleanPortableDetail"},"cassette":{"$ref":"#/definitions/v1OrderAirConditioningCleanCassetteDetail"},"floor":{"$ref":"#/definitions/v1OrderAirConditioningCleanFloorDetail"},"built_in":{"$ref":"#/definitions/v1OrderAirConditioningCleanBuiltInDetail"}}};
-        defs["v1OrderAirConditioningCleanBuiltInDetail"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1OrderAirConditioningCleanCassetteDetail"] = {"type":"object","properties":{"number_bellow_3hp":{"type":"integer","format":"int32"},"number_above_3hp":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1OrderAirConditioningCleanFloorDetail"] = {"type":"object","properties":{"number_bellow_5hp":{"type":"integer","format":"int32"},"number_above_5hp":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1OrderAirConditioningCleanPortableDetail"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
-        defs["v1OrderAirConditioningCleanWallDetail"] = {"type":"object","properties":{"number_bellow_2hp":{"type":"integer","format":"int32"},"number_above_2hp":{"type":"integer","format":"int32"},"gas_refill":{"type":"boolean"}}};
+        defs["v1OrderAirConditioningCleanBuiltInDetail"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"integer","format":"int32"}}};
+        defs["v1OrderAirConditioningCleanCassetteDetail"] = {"type":"object","properties":{"number_bellow_3hp":{"type":"integer","format":"int32"},"number_above_3hp":{"type":"integer","format":"int32"},"gas_refill_bellow_3hp":{"type":"integer","format":"int32"},"gas_refill_above_3hp":{"type":"integer","format":"int32"}}};
+        defs["v1OrderAirConditioningCleanFloorDetail"] = {"type":"object","properties":{"number_bellow_5hp":{"type":"integer","format":"int32"},"number_above_5hp":{"type":"integer","format":"int32"},"gas_refill_bellow_5hp":{"type":"integer","format":"int32"},"gas_refill_above_5hp":{"type":"integer","format":"int32"}}};
+        defs["v1OrderAirConditioningCleanPortableDetail"] = {"type":"object","properties":{"number_ac":{"type":"integer","format":"int32"},"gas_refill":{"type":"integer","format":"int32"}}};
+        defs["v1OrderAirConditioningCleanWallDetail"] = {"type":"object","properties":{"number_bellow_2hp":{"type":"integer","format":"int32"},"number_above_2hp":{"type":"integer","format":"int32"},"gas_refill_bellow_2hp":{"type":"integer","format":"int32"},"gas_refill_above_2hp":{"type":"integer","format":"int32"}}};
         defs["v1OrderCleaningDemand"] = {"type":"object","properties":{"duration":{"type":"integer","format":"int32"},"house_with_pet":{"type":"boolean"},"bring_tools":{"type":"boolean"},"with_home_cooking":{"type":"boolean"},"with_laundry":{"type":"boolean"},"note":{"type":"string"}}};
         defs["v1OrderCleaningSubscription"] = {"type":"object","properties":{"duration_per_day":{"type":"integer","format":"int32"},"dates":{"type":"array","items":{"type":"string"}},"number_of_month":{"type":"integer","format":"int32"},"note":{"type":"string"}}};
         defs["v1OrderDetailResponse"] = {"type":"object","properties":{"order_air_conditioning_clean":{"$ref":"#/definitions/v1OrderAirConditioningClean"},"order_cleaning_demand":{"$ref":"#/definitions/v1OrderCleaningDemand"},"order_cleaning_subscription":{"$ref":"#/definitions/v1OrderCleaningSubscription"},"order_grocery_assistant":{"$ref":"#/definitions/v1OrderGroceryAssistant"},"order_home_cooking":{"$ref":"#/definitions/v1OrderHomeCooking"},"order_laundry":{"$ref":"#/definitions/v1OrderLaundry"}}};
@@ -796,14 +799,15 @@ margin-bottom: 20px;
         defs["v1PaymentMethod"] = {"type":"string","enum":["PAYMENT_METHOD_CASH","PAYMENT_METHOD_WALLET"],"default":"PAYMENT_METHOD_CASH"};
         defs["v1Product"] = {"type":"object","properties":{"code":{"type":"string"},"name":{"type":"string"},"title":{"type":"string"},"type":{"type":"string"},"icon_url":{"type":"string"},"status":{"type":"string"}}};
         defs["v1ProductPrice"] = {"type":"object","properties":{"product_id":{"type":"string","format":"int64"},"unit_price":{"type":"number","format":"double"},"discount":{"type":"number","format":"double"},"bring_tools":{"type":"number","format":"double"},"on_peak_date":{"type":"number","format":"double"},"on_peak_hour":{"type":"number","format":"double"},"on_holiday":{"type":"number","format":"double"},"on_weekend":{"type":"number","format":"double"},"laundry_price":{"$ref":"#/definitions/v1LaundryPrice"},"air_conditioning_clean_price":{"$ref":"#/definitions/v1AirConditioningCleanPrice"}}};
-        defs["v1UpdateAreaBookingPostResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"result":{"$ref":"#/definitions/v1AreaBooking"}}};
+        defs["v1UpdateAreaBookingPostResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"post":{"$ref":"#/definitions/v1AreaBooking"}}};
         defs["v1UpdateJobPostingResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"job":{"$ref":"#/definitions/v1JobPosting"}}};
         defs["v1UpdateProfileResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"user":{"$ref":"#/definitions/v1User"}}};
         defs["v1User"] = {"type":"object","properties":{"code":{"type":"string"},"full_name":{"type":"string"},"email":{"type":"string"},"phone_number":{"type":"string"},"role":{"type":"string"},"default_address":{"type":"string"},"status":{"type":"string"},"status_display":{"type":"string"},"created_at":{"type":"string"},"updated_at":{"type":"string"}}};
         defs["v1UserAddress"] = {"type":"object","properties":{"id":{"type":"string","format":"int64"},"user_code":{"type":"string"},"agent_name":{"type":"string"},"agent_phone":{"type":"string"},"type":{"type":"string"},"city":{"type":"string"},"district":{"type":"string"},"ward":{"type":"string"},"street_name":{"type":"string"},"house_no":{"type":"string"},"latitude":{"type":"number","format":"double"},"longitude":{"type":"number","format":"double"},"detail":{"type":"string"},"is_default":{"type":"boolean"}}};
         defs["v1UserAddressType"] = {"type":"string","enum":["USER_ADDRESS_TYPE_HOME","USER_ADDRESS_TYPE_OFFICE","USER_ADDRESS_TYPE_APARTMENT"],"default":"USER_ADDRESS_TYPE_HOME"};
-        defs["v1UserListTheirAreaBookingPostResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"results":{"type":"array","items":{"$ref":"#/definitions/v1AreaBooking"}}}};
-        defs["v1UserListTheirJobPostingDetailResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"jobs":{"$ref":"#/definitions/v1JobPosting"}}};
+        defs["v1UserGetTheirAreaBookingPostDetailResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"post":{"$ref":"#/definitions/v1AreaBooking"}}};
+        defs["v1UserGetTheirJobPostingDetailResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"jobs":{"$ref":"#/definitions/v1JobPosting"}}};
+        defs["v1UserListTheirAreaBookingPostResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"posts":{"type":"array","items":{"$ref":"#/definitions/v1AreaBooking"}}}};
         defs["v1UserListTheirJobPostingResponse"] = {"type":"object","properties":{"code":{"$ref":"#/definitions/rpcCode"},"jobs":{"type":"array","items":{"$ref":"#/definitions/v1JobPosting"}}}};
         defs["v1Weekday"] = {"type":"string","enum":["WEEKDAY_MONDAY","WEEKDAY_TUESDAY","WEEKDAY_WEDNESDAY","WEEKDAY_THURSDAY","WEEKDAY_FRIDAY","WEEKDAY_SATURDAY","WEEKDAY_SUNDAY"],"default":"WEEKDAY_MONDAY"};
   </script>
@@ -836,11 +840,17 @@ margin-bottom: 20px;
                     <li data-group="AreaBooking" data-name="aiohsUserServiceCreateAreaBooking" class="">
                       <a href="#api-AreaBooking-aiohsUserServiceCreateAreaBooking">aiohsUserServiceCreateAreaBooking</a>
                     </li>
+                    <li data-group="AreaBooking" data-name="aiohsUserServiceGetPublicAreaBookingPostDetail" class="">
+                      <a href="#api-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail">aiohsUserServiceGetPublicAreaBookingPostDetail</a>
+                    </li>
                     <li data-group="AreaBooking" data-name="aiohsUserServiceListPublicAreaBookingPost" class="">
                       <a href="#api-AreaBooking-aiohsUserServiceListPublicAreaBookingPost">aiohsUserServiceListPublicAreaBookingPost</a>
                     </li>
                     <li data-group="AreaBooking" data-name="aiohsUserServiceUpdateAreaBookingPost" class="">
                       <a href="#api-AreaBooking-aiohsUserServiceUpdateAreaBookingPost">aiohsUserServiceUpdateAreaBookingPost</a>
+                    </li>
+                    <li data-group="AreaBooking" data-name="aiohsUserServiceUserGetTheirAreaBookingPostDetail" class="">
+                      <a href="#api-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail">aiohsUserServiceUserGetTheirAreaBookingPostDetail</a>
                     </li>
                     <li data-group="AreaBooking" data-name="aiohsUserServiceUserListTheirAreaBookingPost" class="">
                       <a href="#api-AreaBooking-aiohsUserServiceUserListTheirAreaBookingPost">aiohsUserServiceUserListTheirAreaBookingPost</a>
@@ -852,17 +862,20 @@ margin-bottom: 20px;
                     <li data-group="JobPosting" data-name="aiohsUserServiceCreateJobPosting" class="">
                       <a href="#api-JobPosting-aiohsUserServiceCreateJobPosting">aiohsUserServiceCreateJobPosting</a>
                     </li>
+                    <li data-group="JobPosting" data-name="aiohsUserServiceGetPublicJobPostingDetail" class="">
+                      <a href="#api-JobPosting-aiohsUserServiceGetPublicJobPostingDetail">aiohsUserServiceGetPublicJobPostingDetail</a>
+                    </li>
                     <li data-group="JobPosting" data-name="aiohsUserServiceListPublicJobPosting" class="">
                       <a href="#api-JobPosting-aiohsUserServiceListPublicJobPosting">aiohsUserServiceListPublicJobPosting</a>
                     </li>
                     <li data-group="JobPosting" data-name="aiohsUserServiceUpdateJobPosting" class="">
                       <a href="#api-JobPosting-aiohsUserServiceUpdateJobPosting">aiohsUserServiceUpdateJobPosting</a>
                     </li>
+                    <li data-group="JobPosting" data-name="aiohsUserServiceUserGetTheirJobPostingDetail" class="">
+                      <a href="#api-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail">aiohsUserServiceUserGetTheirJobPostingDetail</a>
+                    </li>
                     <li data-group="JobPosting" data-name="aiohsUserServiceUserListTheirJobPosting" class="">
                       <a href="#api-JobPosting-aiohsUserServiceUserListTheirJobPosting">aiohsUserServiceUserListTheirJobPosting</a>
-                    </li>
-                    <li data-group="JobPosting" data-name="aiohsUserServiceUserListTheirJobPostingDetail" class="">
-                      <a href="#api-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail">aiohsUserServiceUserListTheirJobPostingDetail</a>
                     </li>
                   <li class="nav-header" data-group="Order"><a href="#api-Order">API Methods - Order</a></li>
                     <li data-group="Order" data-name="aiohsUserServiceAcceptOrder" class="">
@@ -2392,6 +2405,365 @@ $(document).ready(function() {
                         </article>
                       </div>
                       <hr>
+                    <div id="api-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail">
+                      <article id="api-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0" data-group="User" data-name="aiohsUserServiceGetPublicAreaBookingPostDetail" data-version="0">
+                        <div class="pull-left">
+                          <h1>aiohsUserServiceGetPublicAreaBookingPostDetail</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/{user_code}/area-booking/public/{post_code}/detail</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-java">Java</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://localhost/user/{user_code}/area-booking/public/{post_code}/detail"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AreaBookingApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AreaBookingApiExample {
+
+    public static void main(String[] args) {
+        
+        AreaBookingApi apiInstance = new AreaBookingApi();
+        String userCode = userCode_example; // String | 
+        String postCode = postCode_example; // String | 
+        try {
+            v1GetPublicAreaBookingPostDetailResponse result = apiInstance.aiohsUserServiceGetPublicAreaBookingPostDetail(userCode, postCode);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AreaBookingApi#aiohsUserServiceGetPublicAreaBookingPostDetail");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AreaBookingApi;
+
+public class AreaBookingApiExample {
+
+    public static void main(String[] args) {
+        AreaBookingApi apiInstance = new AreaBookingApi();
+        String userCode = userCode_example; // String | 
+        String postCode = postCode_example; // String | 
+        try {
+            v1GetPublicAreaBookingPostDetailResponse result = apiInstance.aiohsUserServiceGetPublicAreaBookingPostDetail(userCode, postCode);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AreaBookingApi#aiohsUserServiceGetPublicAreaBookingPostDetail");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *userCode = userCode_example; // 
+String *postCode = postCode_example; // 
+
+AreaBookingApi *apiInstance = [[AreaBookingApi alloc] init];
+
+[apiInstance aiohsUserServiceGetPublicAreaBookingPostDetailWith:userCode
+    postCode:postCode
+              completionHandler: ^(v1GetPublicAreaBookingPostDetailResponse output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var AiohsUser = require('aiohs_user');
+
+var api = new AiohsUser.AreaBookingApi()
+
+var userCode = userCode_example; // {String} 
+
+var postCode = postCode_example; // {String} 
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.aiohsUserServiceGetPublicAreaBookingPostDetail(userCode, postCode, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class aiohsUserServiceGetPublicAreaBookingPostDetailExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new AreaBookingApi();
+            var userCode = userCode_example;  // String | 
+            var postCode = postCode_example;  // String | 
+
+            try
+            {
+                v1GetPublicAreaBookingPostDetailResponse result = apiInstance.aiohsUserServiceGetPublicAreaBookingPostDetail(userCode, postCode);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AreaBookingApi.aiohsUserServiceGetPublicAreaBookingPostDetail: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\AreaBookingApi();
+$userCode = userCode_example; // String | 
+$postCode = postCode_example; // String | 
+
+try {
+    $result = $api_instance->aiohsUserServiceGetPublicAreaBookingPostDetail($userCode, $postCode);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AreaBookingApi->aiohsUserServiceGetPublicAreaBookingPostDetail: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::AreaBookingApi;
+
+my $api_instance = WWW::SwaggerClient::AreaBookingApi->new();
+my $userCode = userCode_example; # String | 
+my $postCode = postCode_example; # String | 
+
+eval { 
+    my $result = $api_instance->aiohsUserServiceGetPublicAreaBookingPostDetail(userCode => $userCode, postCode => $postCode);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling AreaBookingApi->aiohsUserServiceGetPublicAreaBookingPostDetail: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceGetPublicAreaBookingPostDetail-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.AreaBookingApi()
+userCode = userCode_example # String | 
+postCode = postCode_example # String | 
+
+try: 
+    api_response = api_instance.aiohs_user_service_get_public_area_booking_post_detail(userCode, postCode)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AreaBookingApi->aiohsUserServiceGetPublicAreaBookingPostDetail: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">user_code*</td>
+<td>
+
+
+    <div id="d2e199_aiohsUserServiceGetPublicAreaBookingPostDetail_userCode">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">post_code*</td>
+<td>
+
+
+    <div id="d2e199_aiohsUserServiceGetPublicAreaBookingPostDetail_postCode">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - A successful response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-aiohsUserServiceGetPublicAreaBookingPostDetail-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-aiohsUserServiceGetPublicAreaBookingPostDetail-200-schema">
+                                  <div id='responses-aiohsUserServiceGetPublicAreaBookingPostDetail-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "A successful response.",
+  "schema" : {
+    "$ref" : "#/definitions/v1GetPublicAreaBookingPostDetailResponse"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-aiohsUserServiceGetPublicAreaBookingPostDetail-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-aiohsUserServiceGetPublicAreaBookingPostDetail-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-aiohsUserServiceGetPublicAreaBookingPostDetail-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: default - An unexpected error response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-aiohsUserServiceGetPublicAreaBookingPostDetail-default-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-aiohsUserServiceGetPublicAreaBookingPostDetail-default-schema">
+                                  <div id='responses-aiohsUserServiceGetPublicAreaBookingPostDetail-default-schema-default' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "An unexpected error response.",
+  "schema" : {
+    "$ref" : "#/definitions/rpcStatus"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-aiohsUserServiceGetPublicAreaBookingPostDetail-default-schema-data').val(stringify(schema));
+                                        var result = $('#responses-aiohsUserServiceGetPublicAreaBookingPostDetail-default-schema-default');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-aiohsUserServiceGetPublicAreaBookingPostDetail-default-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-AreaBooking-aiohsUserServiceListPublicAreaBookingPost">
                       <article id="api-AreaBooking-aiohsUserServiceListPublicAreaBookingPost-0" data-group="User" data-name="aiohsUserServiceListPublicAreaBookingPost" data-version="0">
                         <div class="pull-left">
@@ -2424,7 +2796,7 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-AreaBooking-aiohsUserServiceListPublicAreaBookingPost-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://localhost/user/{user_code}/area-booking/public?distance=&limit=&next="</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://localhost/user/{user_code}/area-booking/public?distance=&type=&limit=&next="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceListPublicAreaBookingPost-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2442,10 +2814,11 @@ public class AreaBookingApiExample {
         AreaBookingApi apiInstance = new AreaBookingApi();
         String userCode = userCode_example; // String | 
         Double distance = 1.2; // Double | 
+        String type = type_example; // String | 
         Integer limit = 56; // Integer | 
         String next = next_example; // String | 
         try {
-            v1ListPublicAreaBookingPostResponse result = apiInstance.aiohsUserServiceListPublicAreaBookingPost(userCode, distance, limit, next);
+            v1ListPublicAreaBookingPostResponse result = apiInstance.aiohsUserServiceListPublicAreaBookingPost(userCode, distance, type, limit, next);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AreaBookingApi#aiohsUserServiceListPublicAreaBookingPost");
@@ -2464,10 +2837,11 @@ public class AreaBookingApiExample {
         AreaBookingApi apiInstance = new AreaBookingApi();
         String userCode = userCode_example; // String | 
         Double distance = 1.2; // Double | 
+        String type = type_example; // String | 
         Integer limit = 56; // Integer | 
         String next = next_example; // String | 
         try {
-            v1ListPublicAreaBookingPostResponse result = apiInstance.aiohsUserServiceListPublicAreaBookingPost(userCode, distance, limit, next);
+            v1ListPublicAreaBookingPostResponse result = apiInstance.aiohsUserServiceListPublicAreaBookingPost(userCode, distance, type, limit, next);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling AreaBookingApi#aiohsUserServiceListPublicAreaBookingPost");
@@ -2483,6 +2857,7 @@ public class AreaBookingApiExample {
                             <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceListPublicAreaBookingPost-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">String *userCode = userCode_example; // 
 Double *distance = 1.2; //  (optional)
+String *type = type_example; //  (optional) (default to AREA_BOOKING_TYPE_RENT)
 Integer *limit = 56; //  (optional)
 String *next = next_example; //  (optional)
 
@@ -2490,6 +2865,7 @@ AreaBookingApi *apiInstance = [[AreaBookingApi alloc] init];
 
 [apiInstance aiohsUserServiceListPublicAreaBookingPostWith:userCode
     distance:distance
+    type:type
     limit:limit
     next:next
               completionHandler: ^(v1ListPublicAreaBookingPostResponse output, NSError* error) {
@@ -2512,6 +2888,7 @@ var userCode = userCode_example; // {String}
 
 var opts = { 
   'distance': 1.2, // {Double} 
+  'type': type_example, // {String} 
   'limit': 56, // {Integer} 
   'next': next_example // {String} 
 };
@@ -2547,12 +2924,13 @@ namespace Example
             var apiInstance = new AreaBookingApi();
             var userCode = userCode_example;  // String | 
             var distance = 1.2;  // Double |  (optional) 
+            var type = type_example;  // String |  (optional)  (default to AREA_BOOKING_TYPE_RENT)
             var limit = 56;  // Integer |  (optional) 
             var next = next_example;  // String |  (optional) 
 
             try
             {
-                v1ListPublicAreaBookingPostResponse result = apiInstance.aiohsUserServiceListPublicAreaBookingPost(userCode, distance, limit, next);
+                v1ListPublicAreaBookingPostResponse result = apiInstance.aiohsUserServiceListPublicAreaBookingPost(userCode, distance, type, limit, next);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2572,11 +2950,12 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $api_instance = new Swagger\Client\Api\AreaBookingApi();
 $userCode = userCode_example; // String | 
 $distance = 1.2; // Double | 
+$type = type_example; // String | 
 $limit = 56; // Integer | 
 $next = next_example; // String | 
 
 try {
-    $result = $api_instance->aiohsUserServiceListPublicAreaBookingPost($userCode, $distance, $limit, $next);
+    $result = $api_instance->aiohsUserServiceListPublicAreaBookingPost($userCode, $distance, $type, $limit, $next);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AreaBookingApi->aiohsUserServiceListPublicAreaBookingPost: ', $e->getMessage(), PHP_EOL;
@@ -2592,11 +2971,12 @@ use WWW::SwaggerClient::AreaBookingApi;
 my $api_instance = WWW::SwaggerClient::AreaBookingApi->new();
 my $userCode = userCode_example; # String | 
 my $distance = 1.2; # Double | 
+my $type = type_example; # String | 
 my $limit = 56; # Integer | 
 my $next = next_example; # String | 
 
 eval { 
-    my $result = $api_instance->aiohsUserServiceListPublicAreaBookingPost(userCode => $userCode, distance => $distance, limit => $limit, next => $next);
+    my $result = $api_instance->aiohsUserServiceListPublicAreaBookingPost(userCode => $userCode, distance => $distance, type => $type, limit => $limit, next => $next);
     print Dumper($result);
 };
 if ($@) {
@@ -2615,11 +2995,12 @@ from pprint import pprint
 api_instance = swagger_client.AreaBookingApi()
 userCode = userCode_example # String | 
 distance = 1.2 # Double |  (optional)
+type = type_example # String |  (optional) (default to AREA_BOOKING_TYPE_RENT)
 limit = 56 # Integer |  (optional)
 next = next_example # String |  (optional)
 
 try: 
-    api_response = api_instance.aiohs_user_service_list_public_area_booking_post(userCode, distance=distance, limit=limit, next=next)
+    api_response = api_instance.aiohs_user_service_list_public_area_booking_post(userCode, distance=distance, type=type, limit=limit, next=next)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling AreaBookingApi->aiohsUserServiceListPublicAreaBookingPost: %s\n" % e)</code></pre>
@@ -2678,6 +3059,23 @@ except ApiException as e:
                     <span class="format">
                         (double)
                     </span>
+
+            </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">type</td>
+<td>
+
+
+    <div id="d2e199_aiohsUserServiceListPublicAreaBookingPost_type">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
 
             </div>
         </div>
@@ -3221,6 +3619,365 @@ $(document).ready(function() {
                                     </script>
                                   </div>
                                   <input id='responses-aiohsUserServiceUpdateAreaBookingPost-default-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail">
+                      <article id="api-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0" data-group="User" data-name="aiohsUserServiceUserGetTheirAreaBookingPostDetail" data-version="0">
+                        <div class="pull-left">
+                          <h1>aiohsUserServiceUserGetTheirAreaBookingPostDetail</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/{user_code}/area-booking/{post_code}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-java">Java</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://localhost/user/{user_code}/area-booking/{post_code}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.AreaBookingApi;
+
+import java.io.File;
+import java.util.*;
+
+public class AreaBookingApiExample {
+
+    public static void main(String[] args) {
+        
+        AreaBookingApi apiInstance = new AreaBookingApi();
+        String userCode = userCode_example; // String | 
+        String postCode = postCode_example; // String | 
+        try {
+            v1UserGetTheirAreaBookingPostDetailResponse result = apiInstance.aiohsUserServiceUserGetTheirAreaBookingPostDetail(userCode, postCode);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AreaBookingApi#aiohsUserServiceUserGetTheirAreaBookingPostDetail");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.AreaBookingApi;
+
+public class AreaBookingApiExample {
+
+    public static void main(String[] args) {
+        AreaBookingApi apiInstance = new AreaBookingApi();
+        String userCode = userCode_example; // String | 
+        String postCode = postCode_example; // String | 
+        try {
+            v1UserGetTheirAreaBookingPostDetailResponse result = apiInstance.aiohsUserServiceUserGetTheirAreaBookingPostDetail(userCode, postCode);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling AreaBookingApi#aiohsUserServiceUserGetTheirAreaBookingPostDetail");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *userCode = userCode_example; // 
+String *postCode = postCode_example; // 
+
+AreaBookingApi *apiInstance = [[AreaBookingApi alloc] init];
+
+[apiInstance aiohsUserServiceUserGetTheirAreaBookingPostDetailWith:userCode
+    postCode:postCode
+              completionHandler: ^(v1UserGetTheirAreaBookingPostDetailResponse output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var AiohsUser = require('aiohs_user');
+
+var api = new AiohsUser.AreaBookingApi()
+
+var userCode = userCode_example; // {String} 
+
+var postCode = postCode_example; // {String} 
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.aiohsUserServiceUserGetTheirAreaBookingPostDetail(userCode, postCode, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class aiohsUserServiceUserGetTheirAreaBookingPostDetailExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new AreaBookingApi();
+            var userCode = userCode_example;  // String | 
+            var postCode = postCode_example;  // String | 
+
+            try
+            {
+                v1UserGetTheirAreaBookingPostDetailResponse result = apiInstance.aiohsUserServiceUserGetTheirAreaBookingPostDetail(userCode, postCode);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling AreaBookingApi.aiohsUserServiceUserGetTheirAreaBookingPostDetail: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\AreaBookingApi();
+$userCode = userCode_example; // String | 
+$postCode = postCode_example; // String | 
+
+try {
+    $result = $api_instance->aiohsUserServiceUserGetTheirAreaBookingPostDetail($userCode, $postCode);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling AreaBookingApi->aiohsUserServiceUserGetTheirAreaBookingPostDetail: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::AreaBookingApi;
+
+my $api_instance = WWW::SwaggerClient::AreaBookingApi->new();
+my $userCode = userCode_example; # String | 
+my $postCode = postCode_example; # String | 
+
+eval { 
+    my $result = $api_instance->aiohsUserServiceUserGetTheirAreaBookingPostDetail(userCode => $userCode, postCode => $postCode);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling AreaBookingApi->aiohsUserServiceUserGetTheirAreaBookingPostDetail: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-AreaBooking-aiohsUserServiceUserGetTheirAreaBookingPostDetail-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.AreaBookingApi()
+userCode = userCode_example # String | 
+postCode = postCode_example # String | 
+
+try: 
+    api_response = api_instance.aiohs_user_service_user_get_their_area_booking_post_detail(userCode, postCode)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling AreaBookingApi->aiohsUserServiceUserGetTheirAreaBookingPostDetail: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">user_code*</td>
+<td>
+
+
+    <div id="d2e199_aiohsUserServiceUserGetTheirAreaBookingPostDetail_userCode">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">post_code*</td>
+<td>
+
+
+    <div id="d2e199_aiohsUserServiceUserGetTheirAreaBookingPostDetail_postCode">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - A successful response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-200-schema">
+                                  <div id='responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "A successful response.",
+  "schema" : {
+    "$ref" : "#/definitions/v1UserGetTheirAreaBookingPostDetailResponse"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: default - An unexpected error response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-default-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-default-schema">
+                                  <div id='responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-default-schema-default' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "An unexpected error response.",
+  "schema" : {
+    "$ref" : "#/definitions/rpcStatus"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-default-schema-data').val(stringify(schema));
+                                        var result = $('#responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-default-schema-default');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-aiohsUserServiceUserGetTheirAreaBookingPostDetail-default-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
@@ -4333,6 +5090,365 @@ $(document).ready(function() {
                         </article>
                       </div>
                       <hr>
+                    <div id="api-JobPosting-aiohsUserServiceGetPublicJobPostingDetail">
+                      <article id="api-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0" data-group="User" data-name="aiohsUserServiceGetPublicJobPostingDetail" data-version="0">
+                        <div class="pull-left">
+                          <h1>aiohsUserServiceGetPublicJobPostingDetail</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/{user_code}/job-posting/public/{job_code}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-java">Java</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://localhost/user/{user_code}/job-posting/public/{job_code}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.JobPostingApi;
+
+import java.io.File;
+import java.util.*;
+
+public class JobPostingApiExample {
+
+    public static void main(String[] args) {
+        
+        JobPostingApi apiInstance = new JobPostingApi();
+        String userCode = userCode_example; // String | 
+        String jobCode = jobCode_example; // String | 
+        try {
+            v1GetPublicJobPostingDetailResponse result = apiInstance.aiohsUserServiceGetPublicJobPostingDetail(userCode, jobCode);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling JobPostingApi#aiohsUserServiceGetPublicJobPostingDetail");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.JobPostingApi;
+
+public class JobPostingApiExample {
+
+    public static void main(String[] args) {
+        JobPostingApi apiInstance = new JobPostingApi();
+        String userCode = userCode_example; // String | 
+        String jobCode = jobCode_example; // String | 
+        try {
+            v1GetPublicJobPostingDetailResponse result = apiInstance.aiohsUserServiceGetPublicJobPostingDetail(userCode, jobCode);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling JobPostingApi#aiohsUserServiceGetPublicJobPostingDetail");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *userCode = userCode_example; // 
+String *jobCode = jobCode_example; // 
+
+JobPostingApi *apiInstance = [[JobPostingApi alloc] init];
+
+[apiInstance aiohsUserServiceGetPublicJobPostingDetailWith:userCode
+    jobCode:jobCode
+              completionHandler: ^(v1GetPublicJobPostingDetailResponse output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var AiohsUser = require('aiohs_user');
+
+var api = new AiohsUser.JobPostingApi()
+
+var userCode = userCode_example; // {String} 
+
+var jobCode = jobCode_example; // {String} 
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.aiohsUserServiceGetPublicJobPostingDetail(userCode, jobCode, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class aiohsUserServiceGetPublicJobPostingDetailExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new JobPostingApi();
+            var userCode = userCode_example;  // String | 
+            var jobCode = jobCode_example;  // String | 
+
+            try
+            {
+                v1GetPublicJobPostingDetailResponse result = apiInstance.aiohsUserServiceGetPublicJobPostingDetail(userCode, jobCode);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling JobPostingApi.aiohsUserServiceGetPublicJobPostingDetail: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\JobPostingApi();
+$userCode = userCode_example; // String | 
+$jobCode = jobCode_example; // String | 
+
+try {
+    $result = $api_instance->aiohsUserServiceGetPublicJobPostingDetail($userCode, $jobCode);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling JobPostingApi->aiohsUserServiceGetPublicJobPostingDetail: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::JobPostingApi;
+
+my $api_instance = WWW::SwaggerClient::JobPostingApi->new();
+my $userCode = userCode_example; # String | 
+my $jobCode = jobCode_example; # String | 
+
+eval { 
+    my $result = $api_instance->aiohsUserServiceGetPublicJobPostingDetail(userCode => $userCode, jobCode => $jobCode);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling JobPostingApi->aiohsUserServiceGetPublicJobPostingDetail: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceGetPublicJobPostingDetail-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.JobPostingApi()
+userCode = userCode_example # String | 
+jobCode = jobCode_example # String | 
+
+try: 
+    api_response = api_instance.aiohs_user_service_get_public_job_posting_detail(userCode, jobCode)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling JobPostingApi->aiohsUserServiceGetPublicJobPostingDetail: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">user_code*</td>
+<td>
+
+
+    <div id="d2e199_aiohsUserServiceGetPublicJobPostingDetail_userCode">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">job_code*</td>
+<td>
+
+
+    <div id="d2e199_aiohsUserServiceGetPublicJobPostingDetail_jobCode">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - A successful response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-aiohsUserServiceGetPublicJobPostingDetail-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-aiohsUserServiceGetPublicJobPostingDetail-200-schema">
+                                  <div id='responses-aiohsUserServiceGetPublicJobPostingDetail-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "A successful response.",
+  "schema" : {
+    "$ref" : "#/definitions/v1GetPublicJobPostingDetailResponse"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-aiohsUserServiceGetPublicJobPostingDetail-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-aiohsUserServiceGetPublicJobPostingDetail-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-aiohsUserServiceGetPublicJobPostingDetail-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: default - An unexpected error response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-aiohsUserServiceGetPublicJobPostingDetail-default-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-aiohsUserServiceGetPublicJobPostingDetail-default-schema">
+                                  <div id='responses-aiohsUserServiceGetPublicJobPostingDetail-default-schema-default' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "An unexpected error response.",
+  "schema" : {
+    "$ref" : "#/definitions/rpcStatus"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-aiohsUserServiceGetPublicJobPostingDetail-default-schema-data').val(stringify(schema));
+                                        var result = $('#responses-aiohsUserServiceGetPublicJobPostingDetail-default-schema-default');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-aiohsUserServiceGetPublicJobPostingDetail-default-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-JobPosting-aiohsUserServiceListPublicJobPosting">
                       <article id="api-JobPosting-aiohsUserServiceListPublicJobPosting-0" data-group="User" data-name="aiohsUserServiceListPublicJobPosting" data-version="0">
                         <div class="pull-left">
@@ -5168,6 +6284,365 @@ $(document).ready(function() {
                         </article>
                       </div>
                       <hr>
+                    <div id="api-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail">
+                      <article id="api-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0" data-group="User" data-name="aiohsUserServiceUserGetTheirJobPostingDetail" data-version="0">
+                        <div class="pull-left">
+                          <h1>aiohsUserServiceUserGetTheirJobPostingDetail</h1>
+                          <p></p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/{user_code}/job-posting/{job_code}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-java">Java</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-curl">
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://localhost/user/{user_code}/job-posting/{job_code}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.JobPostingApi;
+
+import java.io.File;
+import java.util.*;
+
+public class JobPostingApiExample {
+
+    public static void main(String[] args) {
+        
+        JobPostingApi apiInstance = new JobPostingApi();
+        String userCode = userCode_example; // String | 
+        String jobCode = jobCode_example; // String | 
+        try {
+            v1UserGetTheirJobPostingDetailResponse result = apiInstance.aiohsUserServiceUserGetTheirJobPostingDetail(userCode, jobCode);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling JobPostingApi#aiohsUserServiceUserGetTheirJobPostingDetail");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.JobPostingApi;
+
+public class JobPostingApiExample {
+
+    public static void main(String[] args) {
+        JobPostingApi apiInstance = new JobPostingApi();
+        String userCode = userCode_example; // String | 
+        String jobCode = jobCode_example; // String | 
+        try {
+            v1UserGetTheirJobPostingDetailResponse result = apiInstance.aiohsUserServiceUserGetTheirJobPostingDetail(userCode, jobCode);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling JobPostingApi#aiohsUserServiceUserGetTheirJobPostingDetail");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *userCode = userCode_example; // 
+String *jobCode = jobCode_example; // 
+
+JobPostingApi *apiInstance = [[JobPostingApi alloc] init];
+
+[apiInstance aiohsUserServiceUserGetTheirJobPostingDetailWith:userCode
+    jobCode:jobCode
+              completionHandler: ^(v1UserGetTheirJobPostingDetailResponse output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var AiohsUser = require('aiohs_user');
+
+var api = new AiohsUser.JobPostingApi()
+
+var userCode = userCode_example; // {String} 
+
+var jobCode = jobCode_example; // {String} 
+
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.aiohsUserServiceUserGetTheirJobPostingDetail(userCode, jobCode, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class aiohsUserServiceUserGetTheirJobPostingDetailExample
+    {
+        public void main()
+        {
+            
+            var apiInstance = new JobPostingApi();
+            var userCode = userCode_example;  // String | 
+            var jobCode = jobCode_example;  // String | 
+
+            try
+            {
+                v1UserGetTheirJobPostingDetailResponse result = apiInstance.aiohsUserServiceUserGetTheirJobPostingDetail(userCode, jobCode);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling JobPostingApi.aiohsUserServiceUserGetTheirJobPostingDetail: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\Api\JobPostingApi();
+$userCode = userCode_example; // String | 
+$jobCode = jobCode_example; // String | 
+
+try {
+    $result = $api_instance->aiohsUserServiceUserGetTheirJobPostingDetail($userCode, $jobCode);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling JobPostingApi->aiohsUserServiceUserGetTheirJobPostingDetail: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::JobPostingApi;
+
+my $api_instance = WWW::SwaggerClient::JobPostingApi->new();
+my $userCode = userCode_example; # String | 
+my $jobCode = jobCode_example; # String | 
+
+eval { 
+    my $result = $api_instance->aiohsUserServiceUserGetTheirJobPostingDetail(userCode => $userCode, jobCode => $jobCode);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling JobPostingApi->aiohsUserServiceUserGetTheirJobPostingDetail: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserGetTheirJobPostingDetail-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.JobPostingApi()
+userCode = userCode_example # String | 
+jobCode = jobCode_example # String | 
+
+try: 
+    api_response = api_instance.aiohs_user_service_user_get_their_job_posting_detail(userCode, jobCode)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling JobPostingApi->aiohsUserServiceUserGetTheirJobPostingDetail: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">user_code*</td>
+<td>
+
+
+    <div id="d2e199_aiohsUserServiceUserGetTheirJobPostingDetail_userCode">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                  <tr><td style="width:150px;">job_code*</td>
+<td>
+
+
+    <div id="d2e199_aiohsUserServiceUserGetTheirJobPostingDetail_jobCode">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
+
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - A successful response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-aiohsUserServiceUserGetTheirJobPostingDetail-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-aiohsUserServiceUserGetTheirJobPostingDetail-200-schema">
+                                  <div id='responses-aiohsUserServiceUserGetTheirJobPostingDetail-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "A successful response.",
+  "schema" : {
+    "$ref" : "#/definitions/v1UserGetTheirJobPostingDetailResponse"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-aiohsUserServiceUserGetTheirJobPostingDetail-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-aiohsUserServiceUserGetTheirJobPostingDetail-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-aiohsUserServiceUserGetTheirJobPostingDetail-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: default - An unexpected error response. </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-aiohsUserServiceUserGetTheirJobPostingDetail-default-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-aiohsUserServiceUserGetTheirJobPostingDetail-default-schema">
+                                  <div id='responses-aiohsUserServiceUserGetTheirJobPostingDetail-default-schema-default' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "An unexpected error response.",
+  "schema" : {
+    "$ref" : "#/definitions/rpcStatus"
+  }
+};
+                                        var schema = schemaWrapper.schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.definitions = defs;
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-aiohsUserServiceUserGetTheirJobPostingDetail-default-schema-data').val(stringify(schema));
+                                        var result = $('#responses-aiohsUserServiceUserGetTheirJobPostingDetail-default-schema-default');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-aiohsUserServiceUserGetTheirJobPostingDetail-default-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                     <div id="api-JobPosting-aiohsUserServiceUserListTheirJobPosting">
                       <article id="api-JobPosting-aiohsUserServiceUserListTheirJobPosting-0" data-group="User" data-name="aiohsUserServiceUserListTheirJobPosting" data-version="0">
                         <div class="pull-left">
@@ -5526,365 +7001,6 @@ except ApiException as e:
                                     </script>
                                   </div>
                                   <input id='responses-aiohsUserServiceUserListTheirJobPosting-default-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                        </article>
-                      </div>
-                      <hr>
-                    <div id="api-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail">
-                      <article id="api-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0" data-group="User" data-name="aiohsUserServiceUserListTheirJobPostingDetail" data-version="0">
-                        <div class="pull-left">
-                          <h1>aiohsUserServiceUserListTheirJobPostingDetail</h1>
-                          <p></p>
-                        </div>
-                        <div class="pull-right"></div>
-                        <div class="clearfix"></div>
-                        <p></p>
-                        <p class="marked"></p>
-                        <p></p>
-                        <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/{user_code}/job-posting/{job_code}</span></code></pre>
-                        <p>
-                          <h3>Usage and SDK Samples</h3>
-                        </p>
-                        <ul class="nav nav-tabs nav-tabs-examples">
-                          <li class="active"><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-curl">Curl</a></li>
-                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-java">Java</a></li>
-                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-android">Android</a></li>
-                          <!--<li class=""><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-groovy">Groovy</a></li>-->
-                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-objc">Obj-C</a></li>
-                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-javascript">JavaScript</a></li>
-                          <!--<li class=""><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-angular">Angular</a></li>-->
-                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-csharp">C#</a></li>
-                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-php">PHP</a></li>
-                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-perl">Perl</a></li>
-                          <li class=""><a href="#examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-python">Python</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                          <div class="tab-pane active" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://localhost/user/{user_code}/job-posting/{job_code}"</code></pre>
-                          </div>
-                          <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-java">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
-import io.swagger.client.auth.*;
-import io.swagger.client.model.*;
-import io.swagger.client.api.JobPostingApi;
-
-import java.io.File;
-import java.util.*;
-
-public class JobPostingApiExample {
-
-    public static void main(String[] args) {
-        
-        JobPostingApi apiInstance = new JobPostingApi();
-        String userCode = userCode_example; // String | 
-        String jobCode = jobCode_example; // String | 
-        try {
-            v1UserListTheirJobPostingDetailResponse result = apiInstance.aiohsUserServiceUserListTheirJobPostingDetail(userCode, jobCode);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling JobPostingApi#aiohsUserServiceUserListTheirJobPostingDetail");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-
-                          <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-android">
-                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.JobPostingApi;
-
-public class JobPostingApiExample {
-
-    public static void main(String[] args) {
-        JobPostingApi apiInstance = new JobPostingApi();
-        String userCode = userCode_example; // String | 
-        String jobCode = jobCode_example; // String | 
-        try {
-            v1UserListTheirJobPostingDetailResponse result = apiInstance.aiohsUserServiceUserListTheirJobPostingDetail(userCode, jobCode);
-            System.out.println(result);
-        } catch (ApiException e) {
-            System.err.println("Exception when calling JobPostingApi#aiohsUserServiceUserListTheirJobPostingDetail");
-            e.printStackTrace();
-        }
-    }
-}</code></pre>
-                          </div>
-  <!--
-  <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-groovy">
-  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-  </div> -->
-                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">String *userCode = userCode_example; // 
-String *jobCode = jobCode_example; // 
-
-JobPostingApi *apiInstance = [[JobPostingApi alloc] init];
-
-[apiInstance aiohsUserServiceUserListTheirJobPostingDetailWith:userCode
-    jobCode:jobCode
-              completionHandler: ^(v1UserListTheirJobPostingDetailResponse output, NSError* error) {
-                            if (output) {
-                                NSLog(@"%@", output);
-                            }
-                            if (error) {
-                                NSLog(@"Error: %@", error);
-                            }
-                        }];
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-javascript">
-                              <pre class="prettyprint"><code class="language-js">var AiohsUser = require('aiohs_user');
-
-var api = new AiohsUser.JobPostingApi()
-
-var userCode = userCode_example; // {String} 
-
-var jobCode = jobCode_example; // {String} 
-
-
-var callback = function(error, data, response) {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-};
-api.aiohsUserServiceUserListTheirJobPostingDetail(userCode, jobCode, callback);
-</code></pre>
-                            </div>
-
-                            <!--<div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-angular">
-              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
-            </div>-->
-                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-csharp">
-                              <pre class="prettyprint"><code class="language-cs">using System;
-using System.Diagnostics;
-using IO.Swagger.Api;
-using IO.Swagger.Client;
-using IO.Swagger.Model;
-
-namespace Example
-{
-    public class aiohsUserServiceUserListTheirJobPostingDetailExample
-    {
-        public void main()
-        {
-            
-            var apiInstance = new JobPostingApi();
-            var userCode = userCode_example;  // String | 
-            var jobCode = jobCode_example;  // String | 
-
-            try
-            {
-                v1UserListTheirJobPostingDetailResponse result = apiInstance.aiohsUserServiceUserListTheirJobPostingDetail(userCode, jobCode);
-                Debug.WriteLine(result);
-            }
-            catch (Exception e)
-            {
-                Debug.Print("Exception when calling JobPostingApi.aiohsUserServiceUserListTheirJobPostingDetail: " + e.Message );
-            }
-        }
-    }
-}
-</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-php">
-                              <pre class="prettyprint"><code class="language-php"><&#63;php
-require_once(__DIR__ . '/vendor/autoload.php');
-
-$api_instance = new Swagger\Client\Api\JobPostingApi();
-$userCode = userCode_example; // String | 
-$jobCode = jobCode_example; // String | 
-
-try {
-    $result = $api_instance->aiohsUserServiceUserListTheirJobPostingDetail($userCode, $jobCode);
-    print_r($result);
-} catch (Exception $e) {
-    echo 'Exception when calling JobPostingApi->aiohsUserServiceUserListTheirJobPostingDetail: ', $e->getMessage(), PHP_EOL;
-}
-?></code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-perl">
-                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
-use WWW::SwaggerClient::Configuration;
-use WWW::SwaggerClient::JobPostingApi;
-
-my $api_instance = WWW::SwaggerClient::JobPostingApi->new();
-my $userCode = userCode_example; # String | 
-my $jobCode = jobCode_example; # String | 
-
-eval { 
-    my $result = $api_instance->aiohsUserServiceUserListTheirJobPostingDetail(userCode => $userCode, jobCode => $jobCode);
-    print Dumper($result);
-};
-if ($@) {
-    warn "Exception when calling JobPostingApi->aiohsUserServiceUserListTheirJobPostingDetail: $@\n";
-}</code></pre>
-                            </div>
-
-                            <div class="tab-pane" id="examples-JobPosting-aiohsUserServiceUserListTheirJobPostingDetail-0-python">
-                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
-import time
-import swagger_client
-from swagger_client.rest import ApiException
-from pprint import pprint
-
-# create an instance of the API class
-api_instance = swagger_client.JobPostingApi()
-userCode = userCode_example # String | 
-jobCode = jobCode_example # String | 
-
-try: 
-    api_response = api_instance.aiohs_user_service_user_list_their_job_posting_detail(userCode, jobCode)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling JobPostingApi->aiohsUserServiceUserListTheirJobPostingDetail: %s\n" % e)</code></pre>
-                            </div>
-                          </div>
-
-                          <h2>Parameters</h2>
-
-                            <div class="methodsubtabletitle">Path parameters</div>
-                            <table id="methodsubtable">
-                                <tr>
-                                  <th width="150px">Name</th>
-                                  <th>Description</th>
-                                </tr>
-                                  <tr><td style="width:150px;">user_code*</td>
-<td>
-
-
-    <div id="d2e199_aiohsUserServiceUserListTheirJobPostingDetail_userCode">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-            </div>
-                <div class="inner required">
-                    Required
-                </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                                  <tr><td style="width:150px;">job_code*</td>
-<td>
-
-
-    <div id="d2e199_aiohsUserServiceUserListTheirJobPostingDetail_jobCode">
-        <div class="json-schema-view">
-            <div class="primitive">
-                <span class="type">
-                    String
-                </span>
-
-            </div>
-                <div class="inner required">
-                    Required
-                </div>
-        </div>
-    </div>
-</td>
-</tr>
-
-                            </table>
-
-
-
-
-
-                          <h2>Responses</h2>
-                            <h3> Status: 200 - A successful response. </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-aiohsUserServiceUserListTheirJobPostingDetail-200-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-aiohsUserServiceUserListTheirJobPostingDetail-200-schema">
-                                  <div id='responses-aiohsUserServiceUserListTheirJobPostingDetail-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "A successful response.",
-  "schema" : {
-    "$ref" : "#/definitions/v1UserListTheirJobPostingDetailResponse"
-  }
-};
-                                        var schema = schemaWrapper.schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = defs;
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-aiohsUserServiceUserListTheirJobPostingDetail-200-schema-data').val(stringify(schema));
-                                        var result = $('#responses-aiohsUserServiceUserListTheirJobPostingDetail-200-schema-200');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-aiohsUserServiceUserListTheirJobPostingDetail-200-schema-data' type='hidden' value=''></input>
-                                </div>
-                            </div>
-
-                            <h3> Status: default - An unexpected error response. </h3>
-
-                            <ul class="nav nav-tabs nav-tabs-examples" >
-                                <li class="active">
-                                  <a data-toggle="tab" href="#responses-aiohsUserServiceUserListTheirJobPostingDetail-default-schema">Schema</a>
-                                </li>
-
-                            </ul>
-
-                            <div class="tab-content" style='margin-bottom: 10px;'>
-                                <div class="tab-pane active" id="responses-aiohsUserServiceUserListTheirJobPostingDetail-default-schema">
-                                  <div id='responses-aiohsUserServiceUserListTheirJobPostingDetail-default-schema-default' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
-                                    <script>
-                                      $(document).ready(function() {
-                                        var schemaWrapper = {
-  "description" : "An unexpected error response.",
-  "schema" : {
-    "$ref" : "#/definitions/rpcStatus"
-  }
-};
-                                        var schema = schemaWrapper.schema;
-                                        if (schema.$ref != null) {
-                                          schema = defsParser.$refs.get(schema.$ref);
-                                        } else {
-                                          schemaWrapper.definitions = defs;
-                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
-                                            console.log(err);
-                                          });
-                                        }
-
-                                        //console.log(JSON.stringify(schema));
-                                        var view = new JSONSchemaView(schema, 3);
-                                        $('#responses-aiohsUserServiceUserListTheirJobPostingDetail-default-schema-data').val(stringify(schema));
-                                        var result = $('#responses-aiohsUserServiceUserListTheirJobPostingDetail-default-schema-default');
-                                        result.empty();
-                                        result.append(view.render());
-                                      });
-                                    </script>
-                                  </div>
-                                  <input id='responses-aiohsUserServiceUserListTheirJobPostingDetail-default-schema-data' type='hidden' value=''></input>
                                 </div>
                             </div>
 
