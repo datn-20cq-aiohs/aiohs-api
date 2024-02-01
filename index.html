@@ -279,5 +279,65 @@
             </ul>
         </li>
     </ul>
+
+
+    <h2>Release 2.0.21</h2>
+    <ul>
+        <li>DockerHub: 
+            <a href="https://hub.docker.com/r/hieuiam/aiohs-server/tags">https://hub.docker.com/r/hieuiam/aiohs-server/tags</a>
+        </li>
+        <li>User:
+            <ul>
+            <li>Swagger : 
+                <a href="https://app.swaggerhub.com/apis-docs/hieuus/aiohs-user/2.0.21">https://app.swaggerhub.com/apis-docs/hieuus/aiohs-user/2.0.21</a>
+            </li>
+            <li>
+                <a href="pages/2.0.21/user.html">Click for more details</a>
+            </li>
+
+        </ul>
+        <li>Admin:
+            <ul>
+            <li>Swagger : 
+                <a href="https://app.swaggerhub.com/apis-docs/hieuus/aiohs-admin/2.0.21">https://app.swaggerhub.com/apis-docs/hieuus/aiohs-admin/2.0.21</a>
+            </li>
+            <li>
+                <a href="pages/2.0.21/admin.html">Click for more details</a>
+            </li>
+
+        </ul>
+    </ul>
+    <h3>*What's news?</h3>
+    <ul>
+        <li>API
+            <ul>
+                <li>Revenue report: admin view and user view</li>
+            </ul>
+        </li>
+        <li>Updated
+            <ul>
+                <br/><li>Area booking: height, on_the_floors, has_elevator</li>
+                <br/><li>Create Order(5 products): city, district, ward</li>
+                <br/><li>Public order: filter by distance, city, district, ward, product</li>
+            </ul>
+        </li>
+        <li>API VN provinces
+            <ul>
+                <br/><li>List all provinces: curl --location 'https://vapi.vnappmob.com/api/province'</li>
+                <br/><li>Districts: curl --location 'https://vapi.vnappmob.com/api/province/district/{province_id}'</li>
+                <br/><li>Wards: curl --location 'https://vapi.vnappmob.com/api/province/ward/{district_id}'</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>*Notice</h3>
+    <ul>
+        <li>Database Execution
+            <ul>
+                <li> <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20240129173032_init_revenue_report_tbl.up.sql">init revenue table</a></li>
+                <li> <a href="https://github.com/datn-20cq-aiohs/aiohs-service/blob/master/migrations/20240130100608_alter_area_booking_tbl.up.sql">alter tables table</a></li>
+            </ul>
+        </li>
+    </ul>
 </body>
 </html>
